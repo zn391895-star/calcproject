@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block contect %}
+<body class="login-page">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'auth.css' %}">
+</head>
+<body>
+    <!-- 🔹 Navbar
+    <nav class="navbar">
+        <div class="nav-left">Zainab's Calculator</div>
+        <div class="nav-right">
+            <a href="{% url 'login' %}" class="active">Login</a>
+            <a href="{% url 'signup' %}">Signup</a>
+        </div>
+    </nav> -->
+
+    <!-- 🔹 Login Card -->
+    <div class="auth-container">
+        <h2>Welcome Back 👋</h2>
+        <p class="subtitle">Login to continue</p>
+
+        {% if form.non_field_errors %}
+          <p class="msg error">{{ form.non_field_errors }}</p>
+        {% endif %}
+
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+        <p class="switch">Don’t have an account? <a href="{% url 'signup' %}">Signup</a></p>
+    <!-- </div>
+    <nav class="navbar">
+    <div class="nav-left">My Calculator</div>
+    <div class="nav-right">
+        {% if user.is_authenticated %}
+            <span class="welcome">Hi, {{ user.username }}</span>
+            <a href="{% url 'logout' %}" class="btn-logout">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'signup' %}">Signup</a>
+        {% endif %}
+    </div> -->
+<!-- </nav> -->
+
+</body>
+</html>
+{% endblock %}
+
+

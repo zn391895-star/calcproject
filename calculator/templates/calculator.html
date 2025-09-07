@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block title %}Calculator{% endblock %}
+
+{% block contect %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iPhone Calculator</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'calculator.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+     <!-- Login Link
+  <div style="text-align: right; padding: 10px;">
+      <a href="{% url 'login' %}" style="text-decoration:none; padding:6px 12px; border:1px solid #333; border-radius:6px;">
+          Login
+      </a>  ` -->
+  </div>
+<div class="calculator">
+    <div id="display">
+        <div id="expression">0</div>
+        <div id="result">0</div>
+    </div>
+
+    <div class="buttons">
+        <button class="gray" onclick="clearDisplay()">AC</button>
+        <button class="gray" onclick="toggleSign()">+/-</button>
+        <button class="gray" onclick="press('%')">%</button>
+        <button class="orange" onclick="press('/')">÷</button>
+
+        <button onclick="press('7')">7</button>
+        <button onclick="press('8')">8</button>
+        <button onclick="press('9')">9</button>
+        <button class="orange" onclick="press('*')">×</button>
+
+        <button onclick="press('4')">4</button>
+        <button onclick="press('5')">5</button>
+        <button onclick="press('6')">6</button>
+        <button class="orange" onclick="press('-')">−</button>
+
+        <button onclick="press('1')">1</button>
+        <button onclick="press('2')">2</button>
+        <button onclick="press('3')">3</button>
+        <button class="orange" onclick="press('+')">+</button>
+
+        <button class="zero" onclick="press('0')">0</button>
+        <button onclick="press('.')">.</button>
+        <button class="orange" onclick="calculate()">=</button>
+    </div>
+</div>
+<!-- nav bar -->
+   <nav class="navbar">
+        <div class="nav-left">Zainab's Calculator</div>
+        <div class="nav-right">
+            <a href="{% url 'login' %}" class="active">Login</a>
+            <a href="{% url 'signup' %}">Signup</a>
+        </div>
+    </nav>
+
+<!-- JavaScript Logic -->
+<script>
+    let expression = "";
+
+    function press(value) {
+        if (expression === "0") expression = "";
+        expression += value;
+        document.getElementById("expression").innerText = expression;
+    }
+
+    function clearDisplay() {
+        expression = "";
+        document.getElementById("expression").innerText = "0";
+        document.getElementById("result").innerText = "0";
+    }
+
+    function toggleSign() {
+        if (expression.startsWith("-")) {
+            expression = expression.substring(1);
+        } else {
+            expression = "-" + expression;
+        }
+        document.getElementById("expression").innerText = expression;
+    }
+
+    function calculate() {
+        $.post("/calculate/", {
+            expression: expression,
+            csrfmiddlewaretoken: '{{ csrf_token }}'
+        }, function(data) {
+            document.getElementById("result").innerText = data.result;
+            expression = data.result.toString();
+        });
+    }
+</script>
+</body>
+
+
+</html>
+{% endblock %}
