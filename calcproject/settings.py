@@ -28,11 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*','zaynab123.pythonanywhere.com']
 CSRF_TRUSTED_ORIGINS = ['https://zaynab123.pythonanywhere.com']
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
 
 
@@ -125,9 +121,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-# STATIC_URL = 'static/'
-# STATICFILES_DIRS = [ BASE_DIR / "static" ]   # apna static folder ka path
-# STATIC_ROOT = BASE_DIR / "staticfiles"       # production me collectstatic ke liye
+
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/calculator/'   # login ke baad yahan bhej do
