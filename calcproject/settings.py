@@ -19,10 +19,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['*', 'zaynab123.pythonanywhere.com']
 CSRF_TRUSTED_ORIGINS = ['https://zaynab123.pythonanywhere.com']
 
-# Static & Media files
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # development
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # collectstatic
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -89,6 +87,13 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
+
+import os
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # for dev files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # for collectstatic
+
 
 # Auth redirects
 LOGIN_URL = 'login'
