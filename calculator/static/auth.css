@@ -1,113 +1,10 @@
 
-/* login screen */
-/* Background */
+/* ------------------------------
+   Global + Common Styling
+------------------------------ */
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* Navbar */
-.navbar {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(8px);
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 24px;
-    font-size: 18px;
-}
-.navbar a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 20px;
-    transition: 0.3s;
-}
-.navbar a:hover,
-.navbar .active {
-    color: #ffd369;
-    font-weight: bold;
-}
-
-/* Login Card */
-.auth-container {
-    background: #fff;
-    width: 360px;
-    margin: auto;
-    margin-top: 60px;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    text-align: center;
-}
-.auth-container h2 {
-    margin-bottom: 10px;
-    font-size: 28px;
-    color: #333;
-}
-.subtitle {
-    margin-bottom: 20px;
-    color: #777;
-}
-
-/* Form */
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-.auth-form input {
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-.auth-form input:focus {
-    border-color: #6a11cb;
-    outline: none;
-    box-shadow: 0 0 4px rgba(106,17,203,0.4);
-}
-
-/* Button */
-.btn {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: #fff;
-    border: none;
-    padding: 12px;
-    border-radius: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.btn:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
-}
-
-/* Switch link */
-.switch {
-    margin-top: 15px;
-    color: #555;
-}
-.switch a {
-    color: #2575fc;
-    font-weight: bold;
-    text-decoration: none;
-}
-.switch a:hover {
-    text-decoration: underline;
-}
-
-/* signup screen  */
-
-/* Background */
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #ff6a00, #ee0979);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -158,16 +55,6 @@ body {
     font-size: 14px;
 }
 
-/* Messages */
-.msg {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 14px;
-}
-.msg.error { background: #ffe0e0; color: #d90429; }
-.msg.success { background: #e0ffe5; color: #2b9348; }
-
 /* Form */
 .auth-form {
     display: flex;
@@ -181,14 +68,12 @@ body {
     font-size: 16px;
 }
 .auth-form input:focus {
-    border-color: #ff6a00;
     outline: none;
-    box-shadow: 0 0 4px rgba(255,106,0,0.4);
+    box-shadow: 0 0 4px rgba(0,0,0,0.2);
 }
 
-/* Button */
+/* Buttons */
 .btn {
-    background: linear-gradient(135deg, #ff6a00, #ee0979);
     color: #fff;
     border: none;
     padding: 12px;
@@ -208,7 +93,6 @@ body {
     color: #555;
 }
 .switch a {
-    color: #ee0979;
     font-weight: bold;
     text-decoration: none;
 }
@@ -216,82 +100,28 @@ body {
     text-decoration: underline;
 }
 
+/* Messages */
+.msg {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+.msg.error { background: #ffe0e0; color: #d90429; }
+.msg.success { background: #e0ffe5; color: #2b9348; }
+
 /* Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
-/* logout button */
-/* Navbar welcome */
+
+/* Logout Button */
 .nav-right .welcome {
     margin-right: 15px;
     color: #fff;
     font-weight: 500;
 }
-
-/* Logout Button */
-.btn-logout {
-    background: #ff4d4d;
-    color: #fff;
-    padding: 6px 14px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-.btn-logout:hover {
-    background: #e60000;
-}
-
-
-/* 🔹 Navbar Styling */
-nav {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
-    padding: 14px 40px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 25px;
-}
-
-nav ul li {
-    display: inline-block;
-}
-
-nav ul li a {
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    color: #fff;
-    padding: 8px 14px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-nav ul li a:hover {
-    background: rgba(255,255,255,0.15);
-    color: #ffd369;
-    transform: translateY(-2px);
-}
-
-/* Active link */
-nav ul li a.active {
-    background: #fff;
-    color: #2575fc;
-    font-weight: bold;
-}
-
-/* 🔹 Logout Button */
 .btn-logout {
     background: #ff4d4d;
     color: #fff !important;
@@ -300,10 +130,41 @@ nav ul li a.active {
     font-weight: 600;
     transition: all 0.3s ease;
 }
-
 .btn-logout:hover {
     background: #cc0000;
     color: #fff;
 }
 
+/* ------------------------------
+   Page Specific Styling
+------------------------------ */
 
+/* Login Page */
+body.login-page {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+body.login-page .auth-form input:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 4px rgba(106,17,203,0.4);
+}
+body.login-page .btn {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+body.login-page .switch a {
+    color: #2575fc;
+}
+
+/* Signup Page */
+body.signup-page {
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+}
+body.signup-page .auth-form input:focus {
+    border-color: #ff6a00;
+    box-shadow: 0 0 4px rgba(255,106,0,0.4);
+}
+body.signup-page .btn {
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+}
+body.signup-page .switch a {
+    color: #ee0979;
+}
